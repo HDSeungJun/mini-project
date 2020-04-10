@@ -41,7 +41,7 @@ int main(void)
         else if(choice == 3)
 	{
 	    s_product = select_product_no(product, curcount);
-            update_product(&product[curcount-1]);
+            update_product(&product[s_product-1]);
         }
 	else if(choice == 4)
         {
