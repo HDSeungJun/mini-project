@@ -14,6 +14,14 @@ int main(void)
     int s_product;
     int d_check;
 
+    count = load_data(product);
+    if(count)
+    {
+    	printf("로딩 성공!\n");
+	curcount = count;
+    else
+	printf("저장된 데이터가 없습니다.\n");
+
     while(1)
     {
         choice = select_menu();
@@ -49,6 +57,10 @@ int main(void)
             else
 		printf("삭제가 취소되었습니다.\n");
 	}
+	else if(choice == 5)
+	{
+	    save_data(prodcut, curcount);
+	} 
     }
 
     return 0;
