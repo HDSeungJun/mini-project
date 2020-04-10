@@ -1,10 +1,14 @@
 CC = gcc 
 CFLAGS = -W -Wall 
-TARGET = shop 
-OBJECTS = menu.o guest.o main.c 
+TARGET = market
+DTARGET = market_debug
+OBJECTS = product.o manager.o saver.o searcher.o market.c 
  
 $(TARGET) : $(OBJECTS) 
-        $(CC) $(CFLAGS) -o $@ $^ 
+	$(CC) $(CFLAGS) -o $@ $^
+
+$(DTARGET) : $(OBJECTS) 
+	$(CC) $(CFLAGS) -DDEBUG -o $@ $^ 
  
 clean : 
-        rm *.o $(TARGET) 
+	 rm *.o $(TARGET) $(DTARGET) 
