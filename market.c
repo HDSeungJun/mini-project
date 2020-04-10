@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "saver.h"
+#include "searcher.h"
 
 int main(void)
 {
@@ -10,8 +10,9 @@ int main(void)
     Product product[100];
     int choice;
     int count = 0;
-    int curcount = count;
+    int curcount = 0;
     int s_product;
+    int search;
 
     count = load_data(product);
     if(count)
@@ -40,9 +41,9 @@ int main(void)
         else if(choice == 3)
 	{
 	    s_product = select_product_no(product, curcount);
-            update_product(&product[s_product-1]);
-	}
-        else if(choice == 4)
+            update_product(&product[curcount-1]);
+        }
+	else if(choice == 4)
         {
             s_product = select_product_no(product, curcount);
             count -= delete_product(&product[s_product-1]);
@@ -50,6 +51,18 @@ int main(void)
         else if(choice == 5)
         {
             save_data(product, curcount);
+        }
+        else if(choice == 6)
+        {
+            search = search_product();
+
+            if(search == 1)
+                search_products_by_name(product, curcount);
+            else if(search == 2)
+                search_products_by_price(product, curcount);
+            else if(search == 3)
+                search_products_by_rating(product, curcount);
+            printf("\n");
         }
     }
 

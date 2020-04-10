@@ -9,7 +9,8 @@ void save_data(Product* p, int count)
     fprintf(fp, "별점\t무게\t가격 표준가격 이름\n");
 
     for(int i=0; i<count; i++)
-        fprintf(fp, "%d\t%4d \t%d %d\t%s\n", p[i].rating, p[i].weight, p[i].price, p[i].s_price, p[i].name);
+        if(p[i].weight != -1)
+		fprintf(fp, "%d\t%4d \t%d %d\t%s\n", p[i].rating, p[i].weight, p[i].price, p[i].s_price, p[i].name);
     
     fclose(fp);
 }

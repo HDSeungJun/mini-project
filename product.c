@@ -11,6 +11,7 @@ int select_menu()
     printf("3. 상품 수정\n");
     printf("4. 상품 삭제\n");
     printf("5. 상품 저장\n");
+    printf("6. 상품 검색\n");
     printf("0. 작업 종료\n\n");
  
     printf("=> 작업할 리스트의 번호를 입력하세요: ");
