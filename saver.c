@@ -6,10 +6,10 @@ void save_data(Product* p, int count)
 {
     FILE* fp = fopen(PRODUCT, "wt");
 
-    fprintf(fp, "별점 무게 가격 표준가격 이름\n");
+    fprintf(fp, "별점\t무게\t가격 표준가격 이름\n");
 
     for(int i=0; i<count; i++)
-        fprintf(fp, "%d %d %d %d   %s\n", p[i].rating, p[i].weight, p[i].price, p[i].s_price, p[i].name);
+        fprintf(fp, "%d\t%4d \t%d %d\t%s\n", p[i].rating, p[i].weight, p[i].price, p[i].s_price, p[i].name);
     
     fclose(fp);
 }
@@ -27,7 +27,7 @@ int load_data(Product* p)
     fgets(dummy,sizeof(dummy),fp);
     while(!feof(fp))
     {
-        fscanf(fp, "%d %d %d %d %s", &p[i].rating, &p[i].weight, &p[i].price, &p[i].s_price, p[i].name);
+        fscanf(fp, "%d %d %d %d %[^\n]s", &p[i].rating, &p[i].weight, &p[i].price, &p[i].s_price, p[i].name);
         i++;
     }
 
